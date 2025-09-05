@@ -15,6 +15,29 @@ The ladder program ensures **sequential operation, interlocks, and safety condit
 
 ---
 
+The process sequence is as follows:
+
+1. **Clamping**  
+   - The main actuator moves forward until it reaches the **forward limit switch**.  
+   - Once the switch is triggered, the actuator stops, and the mold is securely locked.  
+
+2. **Injection & Cooling**  
+   - The screw moves forward and **feeds molten plastic** into the mold for **4 seconds**  
+   - Injection continues for extra **2 seconds**.  
+   - After 6 seconds, the screw retracts back to its initial position.  
+   - The same 4-second retracting time period allows the mold to **cool and solidify** the part.  
+
+3. **Mold Opening**  
+   - After screw retraction, the main actuator moves backward until it hits the **backward limit switch**.  
+
+4. **Ejection**  
+   - A secondary actuator, mounted within the main actuator, pushes the **finished part out instantly**.  
+
+5. **Cycle Repeat**  
+   - Once ejection is complete, the process returns to **Step 1** and repeats automatically.
+
+---
+
 ## ⚙️ Features
 - Automatic cycle execution (no manual intervention required).  
 - State-based control with sequential step transitions.  
